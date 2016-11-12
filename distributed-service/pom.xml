@@ -14,10 +14,31 @@
     <version>1.0-SNAPSHOT</version>
     
     <dependencies>
+
+        <!--自添加本工程项目依赖-->
+        <dependency>
+            <groupId>com.edu.nchu.distributed</groupId>
+            <artifactId>distributed-utils</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!--自添加本工程的项目依赖-->
         <dependency>
             <groupId>com.edu.nchu.distributed</groupId>
             <artifactId>distributed-domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!--自添加开源的第三方依赖-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.14</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.14</version>
         </dependency>
     </dependencies>
 
