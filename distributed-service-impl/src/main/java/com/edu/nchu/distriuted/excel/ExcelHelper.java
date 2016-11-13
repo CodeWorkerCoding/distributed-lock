@@ -156,7 +156,7 @@ public class ExcelHelper {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main_bak(String[] args) {
         /*String path = "C:\\Users\\Alen\\Documents\\Tencent Files\\1455794830\\FileRecv\\覆盆子.xls";
         boolean isXlsx = false;
         File file = new File(path);
@@ -166,8 +166,17 @@ public class ExcelHelper {
         List<String[]> result = importExcel(file, isXlsx);
         System.out.println(result.get(0)[0]+"    "+result.get(0)[1]);*/
 
-        String str = "ap00034003430bp";
-        System.out.println(str.replaceAll("\\d+", ""));
-        System.out.println(str.replaceAll("[a-zA-Z]+", ""));
+        String str = "ap00034003430\nbp";
+//        System.out.println(str.replaceAll("\\d+", ""));
+//        System.out.println(str.replaceAll("[a-zA-Z]+", ""));
+        for (char c : str.toCharArray()) {
+            System.out.print(c);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("\n");
     }
 }

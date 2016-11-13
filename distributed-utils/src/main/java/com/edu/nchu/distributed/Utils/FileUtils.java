@@ -61,7 +61,7 @@ public class FileUtils {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main_bak(String[] args) {
 //        String path = "E:\\yawen\\Image-20161111-pm061221-126";
         String path = "E:\\yawen\\Image-20161111-pm073146-122\\";
 //        String path = "E:\\yawen\\Image-20161111-pm073146-122\\cn201610687740ap.pdf";

@@ -2,14 +2,14 @@ package com.edu.nchu.distributed.domain;
 
 import com.edu.nchu.distributed.enums.OrderStatusEnum;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+//import javax.persistence.Entity;
+//import javax.persistence.Table;
 
 /**
  * Created by Alen on 2016/10/30.
  */
-@Entity
-@Table(name = "sm_dist_order")
+//@Entity
+//@Table(name = "sm_dist_order")
 public class Order {
 
     private String id;

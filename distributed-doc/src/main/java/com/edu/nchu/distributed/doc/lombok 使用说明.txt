@@ -1,0 +1,49 @@
+lombok 是一个可以减少pojo冗长代码的小工具，使用很简单，想知道原理的同学可以去百度下。
+
+使用方法如下：
+
+项目中加入依赖：
+
+         <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.10</version>
+            <scope>provided</scope>  //可以看出这个jar在编译期使用
+        </dependency>
+
+/*
+ * Copyright 2016 shenmajr.com All right reserved. This software is the
+ * confidential and proprietary information of shenmajr.com ("Confidential
+ * Information"). You shall not disclose such Confidential Information and shall
+ * use it only in accordance with the terms of the license agreement you entered
+ * into with shenmajr.com.
+ */
+package com.shenma.fund.dr.service.impl;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * 类Test.java的实现描述：测试lombok
+ * @author jian.gong 2016年11月7日 下午7:06:13
+ */
+@Slf4j
+public class Test {
+
+    /**
+     * 测试局部变量，编译期生成getter/setter方法
+     */
+    @Getter
+    @Setter
+    private String str;
+
+    public void test(){
+        //@Slf4j 生成log变量
+        log.info("this is a demo, params:{}", "hello world");
+    }
+}
+
+
+还有其它的一些annotation，比如@Data。
