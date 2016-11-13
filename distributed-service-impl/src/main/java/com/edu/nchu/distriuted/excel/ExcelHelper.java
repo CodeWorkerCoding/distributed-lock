@@ -1,17 +1,20 @@
 package com.edu.nchu.distriuted.excel;
 
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFFont;
+import org.apache.poi.hssf.usermodel.HSSFHyperlink;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFColor;
+import org.apache.poi.xssf.usermodel.XSSFFont;
+import org.apache.poi.xssf.usermodel.XSSFHyperlink;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -73,6 +76,84 @@ public class ExcelHelper {
             }
         }
         return result;
+    }
+
+
+    public static void addHyperLinker(File excelFile, boolean isXlsx, String hyperLinkAddress){
+        FileInputStream fileInputStream = null;
+        FileOutputStream fileOutputStream = null;
+
+        try {
+            fileInputStream = new FileInputStream(excelFile);
+            Workbook workbook;
+            CellStyle cellStyle;
+            try {
+                if (isXlsx) {
+                    workbook = new XSSFWorkbook(fileInputStream);
+                    cellStyle = workbook.createCellStyle();
+                    Font hyperLinkFont = workbook.createFont();
+                    hyperLinkFont.setUnderline(XSSFFont.U_SINGLE);
+                    hyperLinkFont.setColor(HSSFColor.BLUE.index);
+                    cellStyle.setFont(hyperLinkFont);
+                } else {
+                    workbook = new HSSFWorkbook(fileInputStream);
+                    cellStyle = workbook.createCellStyle();
+                    Font hyperLinkFont = workbook.createFont();
+                    hyperLinkFont.setUnderline(HSSFFont.U_SINGLE);
+                    hyperLinkFont.setColor(HSSFColor.BLUE.index);
+                    cellStyle.setFont(hyperLinkFont);
+                }
+
+                for (Sheet sheet : workbook) {
+                    if (sheet == null) continue;
+                    for (int rowNum = 2; rowNum <= sheet.getLastRowNum(); rowNum++) {
+                        Row row = sheet.getRow(rowNum);
+                        Hyperlink link = null;
+                        if (isXlsx){
+                            Hyperlink hssfLink = new HSSFHyperlink(HSSFHyperlink.LINK_FILE);
+                            link = new XSSFHyperlink(hssfLink);
+                        } else {
+                            link = new HSSFHyperlink(HSSFHyperlink.LINK_FILE);
+                        }
+                        /*StringBuffer sb = new StringBuffer(
+                                new String(hyperLinkAddress.getBytes(), Charset.forName("UTF-8")));
+                        StringBuffer sb = new StringBuffer(hyperLinkAddress);
+                        sb.append(row.getCell(0).toString()
+                                .replace(".0", "")).append(".pdf");*/
+                        String hpyerAddress = hyperLinkAddress+row.getCell(0)
+                                .toString().replace(".0", "")+".pdf";
+                        System.out.println("地址："+hpyerAddress);
+                        link.setAddress(new String(hpyerAddress.getBytes(), Charset.forName("UTF-8")));
+                        Cell cell =  row.getCell(5);
+                        cell.setCellStyle(cellStyle);
+                        cell.setHyperlink(link);
+                        System.out.println("单元格的超链接地址为："+cell.getHyperlink().getAddress());
+                    }
+                }
+                fileOutputStream = new FileOutputStream(excelFile);
+//                OutputStreamWriter  outputStreamWriter = new OutputStreamWriter(fileOutputStream, "UTF-8");
+                workbook.write(fileOutputStream);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException fnfe){
+            fnfe.printStackTrace();
+        } finally {
+            if (fileInputStream != null){
+                try {
+                    fileInputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (fileOutputStream != null){
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     public static void main(String[] args) {
