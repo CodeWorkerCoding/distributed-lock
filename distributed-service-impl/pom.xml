@@ -17,8 +17,13 @@
 
     <groupId>com.edu.nchu.distributed</groupId>
     <artifactId>distributed-service-impl</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <jedis.version>2.8.1</jedis.version>
+    </properties>
 
     <dependencies>
         <!--<dependency>
@@ -42,14 +47,8 @@
 
         <dependency>
             <groupId>com.edu.nchu.distributed</groupId>
-            <artifactId>distributed-domain</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.edu.nchu.distributed</groupId>
             <artifactId>distributed-service</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
     </dependencies>

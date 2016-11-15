@@ -11,10 +11,10 @@
 
     <modules>
         <module>distributed-domain</module>
-        <module>distributed-web</module>
         <module>distributed-service</module>
         <module>distributed-service-impl</module>
         <module>distributed-utils</module>
+        <module>distributed-web</module>
         <module>distributed-doc</module>
     </modules>
 </project>
