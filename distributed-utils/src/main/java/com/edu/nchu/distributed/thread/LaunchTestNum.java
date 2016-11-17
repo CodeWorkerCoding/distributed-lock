@@ -5,7 +5,7 @@ package com.edu.nchu.distributed.thread;
  */
 public class LaunchTestNum {
 
-    public static void main(String[] args) {
+    public static void main_bak(String[] args) {
         ThreadGroup group = new ThreadGroup("test num");
         CustomThread customThread = new CustomThread();
         Thread thread1 = new Thread(group, customThread);

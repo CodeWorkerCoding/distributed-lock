@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="static/shenma.ico" rel="shortcut icon" />
+    <title>分发锁项目管理系统</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/plugin/bootstrap/css/bootstrap.min.css">
+    <link href="static/plugin/bootstrap/ext/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/login.css">
+    <!-- JavaScript -->
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/plugin/bootstrap/js/bootstrap.min.js"></script>
+    <!-- jq-ui -->
+</head>
+
+<body>
+<div id="login-page">
+    <div class="container">
+        <form class="form-signin" id="loginForm" action="j_spring_security_check" method="post">
+            <h2 class="form-signin-heading">请登录</h2>
+            <label for="j_username" class="sr-only">用户名</label>
+            <input type="text" id="j_username" name='j_username' class="form-control" placeholder="用户名" autofocus>
+            <label for="j_password" class="sr-only">密码</label>
+            <input type="password" id="j_password" name='j_password' class="form-control" placeholder="密码">
+            <button class="btn btn-lg btn-primary btn-block" href="index.html" type="submit">
+                <i class="fa"></i>登 录
+            </button>
+            <div class="registration" style="display: none;">
+                登录失败，请重试！
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    function encode() {
+        var pwd = document.getElementsByName("j_password")[0].value;
+        document.getElementsByName("j_password")[0].value = hex_md5(pwd);
+        document.getElementById("loginForm").submit();
+    }
+</script>
+</body>
+</html>
