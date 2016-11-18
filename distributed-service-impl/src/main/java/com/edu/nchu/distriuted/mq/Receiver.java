@@ -12,7 +12,7 @@ public class Receiver {
 
     private final static String QUEUE_NAME = "HELLO";
 
-    public static void main(String[] args) {
+    public static void main_bak(String[] args) {
 
         try {
             ConnectionFactory factory = new ConnectionFactory();

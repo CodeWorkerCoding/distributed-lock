@@ -28,7 +28,7 @@ public class TestRabbitMq {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main_bak(String[] args) throws Exception {
         new TestRabbitMq();
     }
 }
