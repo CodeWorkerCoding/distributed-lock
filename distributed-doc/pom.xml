@@ -13,5 +13,14 @@
     <artifactId>distributed-doc</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.10</version>
+            <scope>provided</scope>  <!--//可以看出这个jar在编译期使用-->
+        </dependency>
+    </dependencies>
+
 
 </project>

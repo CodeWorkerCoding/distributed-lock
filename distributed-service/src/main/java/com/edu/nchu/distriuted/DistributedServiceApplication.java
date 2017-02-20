@@ -1,4 +1,3 @@
-/*
 package com.edu.nchu.distriuted;
 
 import org.springframework.boot.SpringApplication;
@@ -11,4 +10,3 @@ public class DistributedServiceApplication {
         SpringApplication.run(DistributedServiceApplication.class, args);
     }
 }
-*/

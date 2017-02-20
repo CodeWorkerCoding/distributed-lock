@@ -1,7 +1,7 @@
 package com.edu.nchu.distriuted.service.impl;
 
-import com.edu.nchu.distributed.domain.Order;
-import com.edu.nchu.distriuted.service.OrderService;
+//import com.edu.nchu.distributed.domain.Order;
+//import com.edu.nchu.distriuted.service.OrderSersvice;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
  * Created by fujianjian on 2016/11/13.
  */
 @Service
-public class OrderServiceImpl implements OrderService {
+public class OrderServiceImpl {
 
-    public Order create(Order object) {
+    /*public Order create(Order object) {
         return null;
     }
 
@@ -25,5 +25,5 @@ public class OrderServiceImpl implements OrderService {
 
     public Order get(String s) {
         return null;
-    }
+    }*/
 }

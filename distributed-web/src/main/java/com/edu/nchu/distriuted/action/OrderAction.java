@@ -1,7 +1,5 @@
 package com.edu.nchu.distriuted.action;
 
-import com.edu.nchu.distributed.domain.Order;
-import com.edu.nchu.distributed.exception.BizException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -20,12 +18,12 @@ public class OrderAction {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    Order order;
+//    Order order;
 
     @RequestMapping(value = "/list", method = {RequestMethod.POST, RequestMethod.GET})
     public String list(ModelMap module){
         logger.info("hint this method");
-        order.getAmount();
+//        order.getAmount();
         return "order/list";
     }
 
@@ -38,7 +36,8 @@ public class OrderAction {
     @RequestMapping(value = "/bizexp", method = RequestMethod.GET)
     public String bizException() throws Exception{
         logger.info("业务出错了");
-        throw new BizException("业务出错鸟");
+//        throw new BizException("业务出错鸟");
+        return "";
     }
 
 

@@ -57,6 +57,19 @@
 			<artifactId>distributed-service-impl</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.edu.nchu.distributed</groupId>
+			<artifactId>distributed-domain</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<!--自添加开源第三方依赖-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.6</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

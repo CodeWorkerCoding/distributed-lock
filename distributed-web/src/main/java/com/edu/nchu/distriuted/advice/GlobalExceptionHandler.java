@@ -1,6 +1,5 @@
 package com.edu.nchu.distriuted.advice;
 
-import com.edu.nchu.distributed.exception.BizException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -23,7 +22,7 @@ public class GlobalExceptionHandler {
 
     private final static  String MSG_KEY = "msg";
 
-    @ExceptionHandler(BizException.class)
+//    @ExceptionHandler(BizException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public String handleBizExp(ModelMap modelMap, Exception e){
         LOGGER.info("Business exception handler", e);

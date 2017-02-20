@@ -5,12 +5,12 @@ package com.edu.nchu.distriuted.service;
  */
 public interface BaseService<T, ID> {
 
-    public T create(T object);
+    /*public T create(T object);
 
     public T update(T object);
 
     public void delete(ID id);
 
-    public T get(ID id);
+    public T get(ID id);*/
 
 }
