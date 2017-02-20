@@ -36,7 +36,6 @@ public class BlockQueueDemo {
                 }
             }
         };
-        tt.start();
 
         Thread t = new Thread() {
             /**
@@ -62,7 +61,10 @@ public class BlockQueueDemo {
 
             }
         };
-        t.start();
+        ExecutorService exec = Executors.newCachedThreadPool();
+        exec.submit(tt);
+        exec.submit(t);
+        exec.shutdown();
 
     }
 
